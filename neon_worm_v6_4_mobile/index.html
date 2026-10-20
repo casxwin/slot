@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#030812">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="worm-icon.svg" type="image/svg+xml">
+<title>Neon Worm v6.4 — Mobile Controls</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="gameShell">
+  <canvas id="arena" aria-label="Neon Worm game arena"></canvas>
+  <div class="screen-shade"></div>
+
+  <header class="top-hud" id="topHud">
+    <div class="top-line">
+      <div class="brand"><span class="brand-icon">$</span><span>NEON <b>WORM</b></span></div>
+      <div class="goal-inline"><span id="cashValue">100 ₽</span><span class="goal-caption" id="goalCaption">GOAL</span><span class="target-amount" id="targetAmount">1 000 ₽</span></div>
+      <div class="best-box"><small>BEST</small><b id="bestValue">0 ₽</b></div>
+    </div>
+    <div class="goal-track"><div class="goal-fill" id="goalFill"></div></div>
+  </header>
+
+  <aside class="leaderboard panel" id="leaderboardPanel">
+    <div class="panel-label"><span class="live-dot"></span> ARENA <small>LOCAL</small></div>
+    <div id="leaderboardList" class="leaderboard-list"><div class="leader-placeholder">Start a run to see the arena rankings.</div></div>
+  </aside>
+
+  <div class="task-banner hidden" id="taskBanner">EXIT WINDOW OPEN — YOU CAN LEAVE NOW</div>
+  <div class="timer-box hidden" id="timerBox"><small>EXIT AVAILABLE</small><b id="timerValue">15</b><small>SECONDS LEFT</small></div>
+
+  <section class="start-screen" id="startScreen">
+    <div class="start-logo"><span class="logo-dollar">$</span><span>NEON<br><b>WORM</b></span></div>
+    <p class="start-kicker">START BALANCE · 100 ₽</p>
+    <div class="target-card"><div><small>FIRST GOAL</small><strong id="startTarget">1 000 ₽</strong></div><div class="target-mark">↗</div></div>
+    <button class="primary-button" id="playButton"><span>▶</span> START RUN <b>→</b></button>
+    <div class="start-hint">MOUSE TO STEER</div>
+    <div class="secondary-actions"><button id="helpButton">CONTROLS</button><button id="resetButton">RESET RECORD</button></div>
+  </section>
+
+  <div class="bottom-hud" id="bottomHud">
+    <div class="challenge-status"><div class="status-label"><span class="status-dot"></span><b id="statusText">REACH 1 000 ₽</b></div><div class="status-track"><i id="statusFill"></i></div></div>
+  </div>
+
+  <div class="quick-stats" id="quickStats"><span>WORMS <b id="wormCount">31</b></span><span>ORBS <b id="orbCount">0</b></span><span>SIZE <b id="lengthCount">67</b></span></div>
+  <div class="controls-note" id="controlsNote">MOUSE <span>STEER</span> · HOLD SPACE <span>BOOST</span> · ESC <span>PAUSE</span></div>
+
+  <div class="mobile-controls" id="mobileControls" aria-label="Mobile game controls">
+    <button class="mobile-pause" id="mobilePause" type="button" aria-label="Pause game">Ⅱ</button>
+    <div class="mobile-steer-hint">DRAG ANYWHERE TO STEER</div>
+    <button class="mobile-boost" id="mobileBoost" type="button" aria-label="Hold to boost">BOOST <span>↑</span></button>
+  </div>
+
+  <section class="result-screen hidden" id="resultScreen">
+    <div class="result-kicker" id="resultKicker">RUN OVER</div>
+    <h1 id="resultTitle">1 000 ₽</h1>
+    <p id="resultText">You crashed into a worm.</p>
+    <button class="primary-button" id="againButton"><span>↻</span> PLAY AGAIN <b>→</b></button>
+    <button class="text-button" id="homeButton">BACK TO MENU</button>
+  </section>
+
+  <div class="help-modal hidden" id="helpModal">
+    <div class="help-card"><button class="close-button" id="closeHelp">×</button><h2>CONTROLS</h2>
+      <p><b>1.</b> Move your mouse to steer. The worm follows your direction smoothly.</p>
+      <p><b>2.</b> Eat yellow spheres to slowly raise your balance and grow longer.</p>
+      <p><b>3.</b> Avoid other worms' bodies and the arena walls. A head collision ends your run.</p>
+      <p><b>4.</b> Hold <b>SPACE</b> to boost. Boosting costs a little balance and leaves a few yellow spheres behind.</p>
+      <p><b>5.</b> Goals open in order: <b>1 000 ₽</b>, <b>1 700 ₽</b>, then <b>3 000 ₽</b>. When a goal is reached, you have 15 seconds to cross the green exit. If time runs out, no penalty is applied and the next goal opens.</p>
+      <p class="help-note">Offline local version. Bots roam, eat orbs, and can collide with each other.</p>
+      <button class="primary-button" id="gotItButton">GOT IT</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <div class="pause-screen hidden" id="pauseScreen"><div class="pause-card"><div class="pause-title">PAUSED</div><p>Take a break, then continue.</p><button class="primary-button" id="continueButton">CONTINUE</button><button class="text-button" id="pauseHomeButton">BACK TO MENU</button></div></div>
+</main>
+<script src="game.js"></script>
+</body>
+</html>

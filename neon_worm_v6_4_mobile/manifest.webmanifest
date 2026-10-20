@@ -1,0 +1,11 @@
+{
+  "name": "Neon Worm",
+  "short_name": "Neon Worm",
+  "description": "A local arcade worm game",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#030812",
+  "theme_color": "#030812"
+}
